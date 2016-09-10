@@ -13,7 +13,7 @@ var jsSources = ['frontend/app/js/**/*.js'],
     htmlSources = ['frontend/app/**/*.html'];
 
 gulp.task('clean', function(){
-    return gulp.src('./frontend/build/*.*', {read: false})
+    return gulp.src('./build/*.*', {read: false})
     .pipe(clean());
 });
 
@@ -21,7 +21,7 @@ gulp.task('clean', function(){
 gulp.task('concatJs', function(){
     return gulp.src([ 'node_modules/angular/angular.js', 'node_modules/angular-ui-router/release/angular-ui-router.js', './src/**/*.module.js', './src/**/*.js'])
     .pipe(concat('build.js'))
-    .pipe(gulp.dest('./frontend/build/'));
+    .pipe(gulp.dest('./build/'));
 });
 
 /**CSS gulp tasks*******************************************************/
@@ -30,14 +30,14 @@ gulp.task('compileSass', function(){
     .pipe(sass())
     //and concatenates them
     .pipe(concat('build.css'))
-    .pipe(gulp.dest('./frontend/build/'));
+    .pipe(gulp.dest('./build/'));
 });
 
 gulp.task('inject', function(){
-    var sources = gulp.src(['./frontend/build/*.css', './frontend/build/*.js'], {read: false});
-    return gulp.src('./frontend/index.html')
+    var sources = gulp.src(['./build/*.css', './build/*.js'], {read: false});
+    return gulp.src('./index.html')
         .pipe(inject(sources, {relative: true}))
-        .pipe(gulp.dest('./frontend/'));
+        .pipe(gulp.dest('./'));
 });
 
 gulp.task('connect', function(){
@@ -72,11 +72,11 @@ gulp.task('css', function() {
 });
 
 gulp.task('uncss', function() {
-    return gulp.src('./frontend/build/build.css')
+    return gulp.src('./build/build.css')
     .pipe(uncss({
         html: ['app/index.html', 'app/**/*.html']
     }))
-    .pipe(gulp.dest('./frontend/build'));
+    .pipe(gulp.dest('./build'));
 });
 
 gulp.task('serve', function(done) {
