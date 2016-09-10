@@ -1,0 +1,28 @@
+{
+  "name": "garbage-games",
+  "version": "1.0.0",
+  "description": "![](https://lh4.googleusercontent.com/-PVw-ZUM9vV8/UuWeH51os0I/AAAAAAAAD6M/0Ikg7viJftQ/w1286-h566-no/hackathon-starter-logo.jpg)\r Hackathon Starter \r =======================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wishinghand/GarbageGames.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wishinghand/GarbageGames/issues"
+  },
+  "homepage": "https://github.com/wishinghand/GarbageGames#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "body-parser": "^1.15.2",
+    "bulma": "^0.1.2",
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "mongoose": "^4.6.0",
+    "morgan": "^1.7.0"
+  }
+}
