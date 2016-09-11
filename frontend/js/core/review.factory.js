@@ -10,13 +10,31 @@
     /* @ngInject */
     function ReviewFactory($http, $q) {
         var service = {
-            func: func
+            getReview: getReview,
+            postReview: postReview,
+            putReview: putReview,
+            deleteReview: deleteReview
         };
         return service;
 
         ////////////////
 
-        function func() {
+        function getReview (){
+
         }
+        
+        function postReview (){
+
+        }
+        
+        function putReview (){
+
+        }
+        
+        function deleteReview (){
+
+        }
+        
+
     }
 })();
