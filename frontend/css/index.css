@@ -1,10 +1,28 @@
 html {
+	background-image: url('../frontend/img/mochaGrunge.png');
 	background-color: rgb(160,166,122);
+}
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+footer {
+	margin-top: 50px;
+	height: 100px;
+	background-color: rgb(160,166,122);
+	box-shadow: 0px -5px 10px rgb(102, 102, 102);
 }
 
 #logo {
 	font-family: Stalinist One;
-	color: rgb(147,147,147);
+	color: rgb(160,166,122);
 	font-size: 1.5em;
 }
 
@@ -29,3 +47,18 @@ html {
 #search-panel {
 	margin-top: 100px;
 }
+
+.game-cards{
+	box-shadow: -5px 5px 5px rgb(64,66,48);
+	margin-top: 50px;
+}
+
+.game-card-title {
+	font-size: 1.5em;
+	color: rgb(0,115,0);
+}
+
+/*#game-id-card{
+	width: 40%;
+	margin-left: 10%;
+}*/
