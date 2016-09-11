@@ -26,7 +26,7 @@ gulp.task('concatJs', function(){
 
 /**CSS gulp tasks*******************************************************/
 gulp.task('compileSass', function(){
-    return gulp.src([ 'node_modules/font-awesome/css/font-awesome.css', 'node_modules/bulma/css/bulma.css', './frontend/css/*.scss', './frontend/css/*.css'])
+    return gulp.src([ 'node_modules/font-awesome/css/font-awesome.css', 'node_modules/bulma/css/bulma.css', './frontend/css/*.scss', './frontend/css/*.css', 'node_modules/animate.css/animate.min.css'])
     .pipe(sass())
     .pipe(sass().on('error', sass.logError))
     //and concatenates them
