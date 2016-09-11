@@ -24,14 +24,40 @@ router.get('/game', function(req, res, next){
 
 router.get('/:gameName/exists', function(req, res, next){
     var game_name = req.params.gameName;
-    console.log(game_name);
+    console.log('Game name: ' + game_name);
 
     game_model.findOne({ name: game_name }, function(error, game){
-        console.log('error ' + JSON.stringify(error));
-        console.log('game ' + JSON.stringify(game));
-       if(!error) {
-           res.send(game);
-       } else {
+       if(!error && !game) {
+           // no data in db, create new item
+           // grab game data from external api and redirect to post
+           request.get("https://igdbcom-internet-game-database-v1.p.mashape.com/games/?fields=name%2Csummary%2Cscreenshots%2Cesrb&limit=1&offset=0&search=" + game_name)
+               .header("X-Mashape-Key", "lm8ICvaR3BmshOQ5Bpw2kS9b4SzYp1LtsCdjsnc74txWct4LAB")
+               .header("Accept", "application/json")
+               .end(function (result) {
+                   if(result.status == 200){
+                       var response = result.body[0];
+                       var options = {};
+
+                       if(response.name){
+                           options.name = response.name;
+                       }
+                       if(response.screenshots) {
+                           options.picture = response.screenshots[0].cloudinary_id;
+                       }
+                       game_model.create(options, function(err, game){
+                           if(!err){
+                               res.send(game);
+                           } else {
+                               res.send(err);
+                           }
+                       });
+                   } else {
+                       res.send(result);
+                   }
+               });
+       } else if (!error && game){
+           res.status(200).send(game);
+       } else if (error) {
            res.send(error);
        }
     });
@@ -71,7 +97,6 @@ router.post('/game', function(req, res, next){
     
     if(req.body){
         options.name = req.body.name;
-        options.genre = req.body.genre;
         options.picture = req.body.picture;
         options.reviews = req.body.review;
 

@@ -8,7 +8,6 @@ module.exports = {
     name: 'Game',
     schema: new schema({
         name: { type: String },
-        genre: { type: String },
         reviews: [schema.Types.ObjectId],
         picture: { type: String },
     }),
