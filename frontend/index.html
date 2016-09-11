@@ -8,15 +8,43 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>Garbage Games</title>
 	
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Stalinist+One" rel="stylesheet">
 
 
 	<!-- inject:css -->
+	<link rel="stylesheet" href="../build/build.css">
 	<!-- endinject -->
 
 </head>
 
 <body>
+
+	<nav class="nav">
+	  <div class="nav-left">
+	    <a class="nav-item" href="#">
+	      <h1 id="logo">Garbage Games</h1>
+	    </a>
+	  </div>
+
+	  <div class="nav-right nav-menu">
+	    <a class="nav-item" href="#">
+	    	<h2 class="nav-links">Home</h2>
+	    </a>
+	    <a class="nav-item" ui-sref="browse">
+	     	<h2 class="nav-links">Browse</h2>
+	    </a>
+	      <a class="user-status-btn button nav-links" href="#">
+	        <span class="icon">
+	          <i class="fa fa-user" aria-hidden="true"></i>
+	        </span>
+	        <span>Profile</span>
+	      </a>
+	    </span>
+	  </div>
+	</nav>
+
 
 
 <main>
@@ -28,6 +56,7 @@
 
 
 <!-- inject:js -->
+<script src="../build/build.js"></script>
 <!-- endinject -->
 
 

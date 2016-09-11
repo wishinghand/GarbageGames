@@ -1,0 +1,31 @@
+html {
+	background-color: rgb(160,166,122);
+}
+
+#logo {
+	font-family: Stalinist One;
+	color: rgb(147,147,147);
+	font-size: 1.5em;
+}
+
+.nav {
+	box-shadow: 0px 5px 10px rgb(102, 102, 102);
+}
+
+.nav-content {
+	min-height: 20px;
+}
+
+.user-status-btn {
+	background-color: rgb(102, 102, 102);
+	color: white;
+    margin-top: 8px;
+}
+
+.nav-links {
+	margin-right: 8px;
+}
+
+#search-panel {
+	margin-top: 100px;
+}
