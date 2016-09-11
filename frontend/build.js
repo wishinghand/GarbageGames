@@ -40120,7 +40120,7 @@ return /******/ (function(modules) { // webpackBootstrap
     /* @ngInject */
 
     function BrowseCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
-         
+
         //scope binding
         var vm = this;
 

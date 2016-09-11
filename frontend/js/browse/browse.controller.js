@@ -10,7 +10,7 @@
     /* @ngInject */
 
     function BrowseCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
-         
+
         //scope binding
         var vm = this;
 
