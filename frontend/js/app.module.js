@@ -24,7 +24,7 @@
                     templateUrl: 'js/browse/browse.html'
                 })
                 .state('game', {
-                    url: '/game', 
+                    url: '/game/:gameName', 
                     controller: "GameCtrl as game",
                     templateUrl: 'js/game/game.html'
                 })

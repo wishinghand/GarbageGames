@@ -17,20 +17,23 @@
         vm.title = 'GameCtrl';
         vm.game = {};
         vm.review = {};
+        vm.gameName = '';
 
         //function bindings
-        vm.getGame = getGame;
         vm.getReview = getReview;
         vm.postReview = postReview;
         vm.deleteReview = deleteReview;
         vm.getUser = getUser;
 
         ////////////////
-        
+
+        getGame();
+
         function getGame() {
-            GameFactory.getGame().then(
+            vm.gameName = $stateParams.gameName;
+            GameFactory.getGameByName(vm.gameName).then(
                 function(game) {
-                    vm.game = game;
+                    vm.gameDetails = game;
                 }
             );
         }

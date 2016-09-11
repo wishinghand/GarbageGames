@@ -6,7 +6,6 @@
       </div>
       <div class="panel-block">
         <p class="control">
-
           <input class="input" ng-model="landing.game.name" type="text" placeholder="Example: Grand Theft Auto IV" ng-keyup="$event.keyCode == 13 && landing.getGame(landing.game.name);">
         </p>
         <img src="../img/trash.png">
@@ -18,23 +17,20 @@
 
 <div class="columns">
   <div class="column is-one-fifth" ng-repeat="game in landing.games">
-      <a ui-sref="game">
+      <a ui-sref="game({gameName:game.name})">
         <div class="card game-cards animated slideInRight">
           <div class="card-image">
             <figure class="image is-4by3">
-              <!-- <img src="https://res.cloudinary.com/igdb/image/upload/t_screenshot_med/{{game.hash}}.jpg"></img> -->
+              <!-- <img src="https://res.cloudinary.com/igdb/image/upload/t_screenshot_med/{{game.id}}.jpg"> -->
             </figure>
           </div>
           <div class="card-content">
             <h2 class="game-card-title"> {{game.name}}</h2>
-            <p><i class="fa fa-trash-o" aria-hidden="true"></i>Average rating {{game.averageRating}}%</p>
+            <!-- <p><i class="fa fa-trash-o" aria-hidden="true"></i>Average rating {{game.reviews.averageRating}}%</p> -->
             <p>{{game.reviews.length}} Reviews</p>
-            <p>Platforms: {{}}</p>
+            <!-- <p>Platforms: {{}}</p> -->
           </div>
         </div>
       </a>
-    </div>
-    </div>
-
-
+  </div>
 </div>

@@ -1,22 +1,20 @@
 <div id="game-detail-content" class="animated fadeInUp">
   <div class="columns">
     <div class="column is-one-half">
-			   <div class="card game-cards" id="game-id-card">
-      			<div class="card-image">
-        		<figure class="image is-4by3">
-          		<img src="https:/res.cloudinary.com/igdb/image/upload/t_screenshot_med/djytg7kqip9d5dgekfew.jpg" alt="">
-        		</figure>
-      			</div>
-		      	<div class="card-content">
-		        <h2 class="game-card-title">The Ledgend of Zelda: Breath of the Wild</h2>
+      <div class="card game-cards" id="game-id-card">
+  			<div class="card-image">
+      		<figure class="image is-4by3">
+        		<img src="https:/res.cloudinary.com/igdb/image/upload/t_screenshot_med/djytg7kqip9d5dgekfew.jpg" alt="">
+      		</figure>
+  			</div>
+      	<div class="card-content">
+	        <h2 class="game-card-title">{{game.gameName}}</h2>
 
-            <p>4234 reviews</p>
-		        <p>Summary:</p>
-      			</div>
-
-
-             <a class="button is-meium animated infinite pulse" id="add-review-btn" ng-click="game.postReview();" >Add Review</a>
-    		</div>
+          <p>{{4234}} reviews</p>
+	        <p>Summary: {{}}</p>
+  			</div>
+        <a class="button is-meium animated infinite pulse" id="add-review-btn" ng-click="game.postReview();" >Add Review</a>
+		  </div>
 
 
     	</div>
@@ -37,13 +35,3 @@
     </div>
   </div>
 </div>
-    	
-
-
-
-
-
-
-
-
-

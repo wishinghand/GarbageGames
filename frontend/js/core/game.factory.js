@@ -12,6 +12,7 @@
         //no DELETE because once it's in DB we want to keep it
         var service = {
             getGame: getGame,
+            getGameByName: getGameByName,
             postGame: postGame,
             putGame: putGame
         };
@@ -23,6 +24,22 @@
             var defer = $q.defer();
             
             $http.get(apiUrl + 'game?search=' + game).then(
+                function(response) {
+                    defer.resolve(response.data);
+                },
+                function(error) {
+                    console.log(error);
+                    defer.reject(error);
+                }
+            );
+            
+            return defer.promise;
+        }
+
+        function getGameByName(gameName){
+            var defer = $q.defer();
+            
+            $http.get(apiUrl + gameName + '/exists').then(
                 function(response) {
                     defer.resolve(response.data);
                 },
