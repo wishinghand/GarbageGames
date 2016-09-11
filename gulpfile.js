@@ -8,9 +8,9 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     clean = require('gulp-clean');
 
-var jsSources = ['frontend/app/js/**/*.js'],
-    cssSources = ['frontend/app/css/**/*.scss', 'frontend/app/css/**/*.css'],
-    htmlSources = ['frontend/app/**/*.html', 'frontend/*.html'];
+var jsSources = ['frontend/js/**/*.js'],
+    cssSources = ['frontend/css/**/*.scss', 'frontend/css/**/*.css'],
+    htmlSources = ['frontend/**/*.html', 'frontend/*.html'];
 
 gulp.task('clean', function(){
     return gulp.src('./build/*.*', {read: false})
@@ -28,6 +28,7 @@ gulp.task('concatJs', function(){
 gulp.task('compileSass', function(){
     return gulp.src([ 'node_modules/bulma/css/bulma.css', './frontend/css/*.scss', './frontend/css/*.css'])
     .pipe(sass())
+    .pipe(sass().on('error', sass.logError))
     //and concatenates them
     .pipe(concat('build.css'))
     .pipe(gulp.dest('./build/'));
