@@ -3,6 +3,7 @@
 
     angular
         .module('app', ['ui.router'])
+        .value('apiUrl', 'http://localhost:3000/api/')
         .config(appConfig);
 
     appConfig.$inject= ['$urlRouterProvider', '$stateProvider'];
@@ -41,5 +42,5 @@
                     controller: "SignInUpCtrl as signInUp",
                     templateUrl: 'js/signInUp/signInUp.html'
                 });
-    	}
+	   }
 })();

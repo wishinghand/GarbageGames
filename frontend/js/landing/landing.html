@@ -6,13 +6,34 @@
       </div>
       <div class="panel-block">
         <p class="control">
-          <input class="input" ng-model="landing.game.name" type="text" placeholder="Example: Grand Theft Auto V">
+          <input class="input" ng-model="landing.game.name" type="text" placeholder="Example: Grand Theft Auto IV" ng-keyup="$event.keyCode == 13 && landing.getGame(landing.game.name);">
         </p>
         <img src="../img/trash.png">
-          <a class="button is-meium" id="add-review-btn" ng-click="">Search</a> 
-    <!-- <div id="mower-giphy">
-        <iframe src="//giphy.com/embed/4whKirOb5PFBe" width="480" height="270" frameBorder="0" allowFullScreen></iframe>
-    </div> -->
-
+        <a class="button is-medium" id="add-review-btn" ng-click="landing.getGame(landing.game.name);">Search</a> 
+      </div>
+    </div>
   </div>
+</div>
+
+<div class="columns">
+  <div class="column is-one-fifth" ng-repeat="game in landing.games">
+      <a ui-sref="game">
+        <div class="card game-cards animated slideInRight">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <!-- <img src="https://res.cloudinary.com/igdb/image/upload/t_screenshot_med/{{game.hash}}.jpg"></img> -->
+            </figure>
+          </div>
+          <div class="card-content">
+            <h2 class="game-card-title"> {{game.name}}</h2>
+            <p><i class="fa fa-trash-o" aria-hidden="true"></i>Average rating {{game.averageRating}}%</p>
+            <p>{{game.reviews.length}} Reviews</p>
+            <p>Platforms: {{}}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    </div>
+
+
 </div>

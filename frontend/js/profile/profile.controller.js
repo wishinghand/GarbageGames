@@ -5,10 +5,10 @@
         .module('app')
         .controller('ProfileCtrl', ProfileCtrl);
 
-    ProfileCtrl.$inject = ['GameFactory', 'ReviewFactory', 'UserFactory'];
+    ProfileCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
 
     /* @ngInject */
-    function ProfileCtrl(GameFactory, ReviewFactory, UserFactory) {
+    function ProfileCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
         //scope binding
         var vm = this;
 

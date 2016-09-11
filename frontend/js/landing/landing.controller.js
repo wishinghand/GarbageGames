@@ -5,10 +5,11 @@
         .module('app')
         .controller('LandingCtrl', LandingCtrl);
 
-    LandingCtrl.$inject = ['GameFactory', 'UserFactory'];
+    LandingCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
+
 
     /* @ngInject */
-    function LandingCtrl(GameFactory, UserFactory) {
+    function LandingCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
         //scope binding
         var vm = this;
 
@@ -25,16 +26,16 @@
 
         ////////////////
 
-        function getGame() {
-            GameFactory.getGame.then(
-                function(game) {
-                    vm.game = game;
+        function getGame(game) {
+            GameFactory.getGame(game).then(
+                function(games) {
+                    vm.games = games;
                 }
             );
         }
 
         function getUser() {
-            UserFactory.getUser.then(
+            UserFactory.getUser().then(
                 function(user) {
                     vm.user = user;
                 }
@@ -42,7 +43,7 @@
         }
 
         function postUser() {
-            UserFactory.postUser.then(
+            UserFactory.postUser().then(
                 function() {
                   
                 }

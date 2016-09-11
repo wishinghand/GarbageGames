@@ -5,10 +5,10 @@
         .module('app')
         .controller('BrowseCtrl', BrowseCtrl);
 
-    BrowseCtrl.$inject = ['GameFactory', 'ReviewFactory'];
+    BrowseCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
 
     /* @ngInject */
-    function BrowseCtrl(GameFactory, ReviewFactory) {
+    function BrowseCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
         //scope binding
         var vm = this;
 
