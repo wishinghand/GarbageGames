@@ -9,11 +9,11 @@
 
     /* @ngInject */
     function GameFactory($http, $q) {
+        //no DELETE because once it's in DB we want to keep it
         var service = {
             getGame: getGame,
             postGame: postGame,
-            putGame: putGame,
-            deleteGame: deleteGame
+            putGame: putGame
         };
         return service;
 
@@ -22,7 +22,7 @@
         function getGame() {
             var defer = $q.defer();
             
-            $http.get(apiUrl + 'endpoint').then(
+            $http.get(apiUrl + 'game').then(
                 function(response) {
                     defer.resolve(response.data);
                 },
@@ -38,7 +38,7 @@
         function postGame() {
             var defer = $q.defer();
             
-            $http.post(apiUrl + 'endpoint',  data).then(
+            $http.post(apiUrl + 'game',  data).then(
                 function(response) {
                     defer.resolve(response.data);
                 },
@@ -54,7 +54,7 @@
         function putGame() {
             var defer = $q.defer();
             
-            $http.put(apiUrl + 'endpoint', data).then(
+            $http.put(apiUrl + 'game', data).then(
                 function(response) {
                     defer.resolve();
                 },
@@ -66,23 +66,5 @@
             
             return defer.promise;
         }
-
-        function deleteGame() {
-            var defer = $q.defer();
-            
-            $http.delete(apiUrl + 'endpoint').then(
-                function(response) {
-                    defer.resolve(response.data);
-                },
-                function(error) {
-                    console.log(error);
-                    defer.reject(error);
-                }
-            );
-            
-            return defer.promise;
-        }
-
-        
     }
 })();
