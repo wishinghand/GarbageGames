@@ -26,7 +26,7 @@ gulp.task('concatJs', function(){
 
 /**CSS gulp tasks*******************************************************/
 gulp.task('compileSass', function(){
-    return gulp.src([ 'node_modules/bulma.sass', './frontend/css/*.scss', './frontend/css/*.css'])
+    return gulp.src([ 'node_modules/bulma/css/bulma.css', './frontend/css/*.scss', './frontend/css/*.css'])
     .pipe(sass())
     //and concatenates them
     .pipe(concat('build.css'))
