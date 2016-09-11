@@ -1,0 +1,115 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'animate-css' ]
+2 info using npm@2.15.9
+3 info using node@v4.5.0
+4 verbose install initial load of C:\DEV\GarbageGames\package.json
+5 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\angular\package.json
+6 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\angular-ui-router\package.json
+7 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\animate.css\package.json
+8 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\body-parser\package.json
+9 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\bulma\package.json
+10 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\express\package.json
+11 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\font-awesome\package.json
+12 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\gulp\package.json
+13 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\gulp-clean\package.json
+14 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\gulp-concat\package.json
+15 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\gulp-connect\package.json
+16 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\gulp-inject\package.json
+17 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\gulp-livereload\package.json
+18 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\gulp-sass\package.json
+19 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\gulp-uncss\package.json
+20 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\mongoose\package.json
+21 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\morgan\package.json
+22 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\nodemon\package.json
+23 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\react\package.json
+24 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\react-dom\package.json
+25 verbose installManyTop reading scoped package data from C:\DEV\GarbageGames\node_modules\run-sequence\package.json
+26 verbose readDependencies loading dependencies from C:\DEV\GarbageGames\package.json
+27 silly cache add args [ 'animate-css', null ]
+28 verbose cache add spec animate-css
+29 silly cache add parsed spec Result {
+29 silly cache add   raw: 'animate-css',
+29 silly cache add   scope: null,
+29 silly cache add   name: 'animate-css',
+29 silly cache add   rawSpec: '',
+29 silly cache add   spec: 'latest',
+29 silly cache add   type: 'tag' }
+30 silly addNamed animate-css@latest
+31 verbose addNamed "latest" is being treated as a dist-tag for animate-css
+32 info addNameTag [ 'animate-css', 'latest' ]
+33 silly mapToRegistry name animate-css
+34 silly mapToRegistry using default registry
+35 silly mapToRegistry registry https://registry.npmjs.org/
+36 silly mapToRegistry data Result {
+36 silly mapToRegistry   raw: 'animate-css',
+36 silly mapToRegistry   scope: null,
+36 silly mapToRegistry   name: 'animate-css',
+36 silly mapToRegistry   rawSpec: '',
+36 silly mapToRegistry   spec: 'latest',
+36 silly mapToRegistry   type: 'tag' }
+37 silly mapToRegistry uri https://registry.npmjs.org/animate-css
+38 verbose addNameTag registry:https://registry.npmjs.org/animate-css not in flight; fetching
+39 verbose request uri https://registry.npmjs.org/animate-css
+40 verbose request no auth needed
+41 info attempt registry request try #1 at 12:23:34 AM
+42 verbose request id cca9d31943cac90b
+43 http request GET https://registry.npmjs.org/animate-css
+44 http 404 https://registry.npmjs.org/animate-css
+45 verbose headers { 'content-type': 'application/json',
+45 verbose headers   'cache-control': 'max-age=0',
+45 verbose headers   'content-length': '2',
+45 verbose headers   'accept-ranges': 'bytes',
+45 verbose headers   date: 'Sun, 11 Sep 2016 07:23:34 GMT',
+45 verbose headers   via: '1.1 varnish',
+45 verbose headers   age: '0',
+45 verbose headers   connection: 'keep-alive',
+45 verbose headers   'x-served-by': 'cache-sea1925-SEA',
+45 verbose headers   'x-cache': 'MISS',
+45 verbose headers   'x-cache-hits': '0',
+45 verbose headers   'x-timer': 'S1473578614.278412,VS0,VE90',
+45 verbose headers   vary: 'Accept-Encoding' }
+46 silly get cb [ 404,
+46 silly get   { 'content-type': 'application/json',
+46 silly get     'cache-control': 'max-age=0',
+46 silly get     'content-length': '2',
+46 silly get     'accept-ranges': 'bytes',
+46 silly get     date: 'Sun, 11 Sep 2016 07:23:34 GMT',
+46 silly get     via: '1.1 varnish',
+46 silly get     age: '0',
+46 silly get     connection: 'keep-alive',
+46 silly get     'x-served-by': 'cache-sea1925-SEA',
+46 silly get     'x-cache': 'MISS',
+46 silly get     'x-cache-hits': '0',
+46 silly get     'x-timer': 'S1473578614.278412,VS0,VE90',
+46 silly get     vary: 'Accept-Encoding' } ]
+47 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/animate-css
+47 verbose stack     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+47 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:242:14)
+47 verbose stack     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+47 verbose stack     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:200:22)
+47 verbose stack     at emitTwo (events.js:87:13)
+47 verbose stack     at Request.emit (events.js:172:7)
+47 verbose stack     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1067:10)
+47 verbose stack     at emitOne (events.js:82:20)
+47 verbose stack     at Request.emit (events.js:169:7)
+47 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:988:12)
+48 verbose statusCode 404
+49 verbose pkgid animate-css
+50 verbose cwd C:\DEV\GarbageGames\frontend
+51 error Windows_NT 10.0.14393
+52 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "animate-css"
+53 error node v4.5.0
+54 error npm  v2.15.9
+55 error code E404
+56 error 404 Registry returned 404 for GET on https://registry.npmjs.org/animate-css
+56 error 404
+56 error 404 'animate-css' is not in the npm registry.
+56 error 404 You should bug the author to publish it (or use the name yourself!)
+56 error 404 It was specified as a dependency of 'garbage-games'
+56 error 404
+56 error 404 Note that you can also install from a
+56 error 404 tarball, folder, http url, or git url.
+57 verbose exit [ 1, true ]

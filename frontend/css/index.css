@@ -35,7 +35,7 @@ footer {
 }
 
 .user-status-btn {
-	background-color: rgb(102, 102, 102);
+	background-color: rgb(160,166,122);
 	color: white;
     margin-top: 8px;
 }
@@ -58,7 +58,7 @@ footer {
 	color: rgb(0,115,0);
 }
 
-/*#game-id-card{
-	width: 40%;
-	margin-left: 10%;
-}*/
+.browse {
+	width: 90%;
+	margin-left: 5%;
+}
