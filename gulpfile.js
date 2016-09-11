@@ -41,6 +41,18 @@ gulp.task('inject', function(){
         .pipe(gulp.dest('./frontend'));
 });
 
+gulp.task('injectBuild', function(){
+    var sources = gulp.src(['./build/*.css', './build/*.js'], {read: false});
+    return gulp.src('./frontend/index.html')
+        .pipe(inject(sources, 
+            {
+                relative: false,
+                ignorePath: '/build'
+            }
+        ))
+        .pipe(gulp.dest('./build'));
+});
+
 gulp.task('connect', function(){
     return connect.server({
         root: './',
@@ -52,11 +64,6 @@ gulp.task('connect', function(){
 gulp.task('copyFonts', function() {
     return gulp.src(['node_modules/font-awesome/fonts/*'])
             .pipe(gulp.dest('./fonts'));
-});
-
-gulp.task('copyHTML', function() {
-    return gulp.src(['frontend/index.html'])
-            .pipe(gulp.dest('./build'));
 });
 
 //checks js/html/css on change...
@@ -90,8 +97,14 @@ gulp.task('uncss', function() {
     .pipe(gulp.dest('./build'));
 });
 
-gulp.task('serve', function(done) {
-    runSequence('clean', 'concatJs', 'compileSass', 'copyFonts', 'inject', 'copyHTML', 'connect', 'watch', function() {
+gulp.task('dev', function(done) {
+    runSequence('clean', 'concatJs', 'compileSass', 'copyFonts', 'inject', 'connect', 'watch', function() {
+        done();
+    });
+});
+
+gulp.task('build', function(done) {
+    runSequence('clean', 'concatJs', 'compileSass', 'copyFonts', 'injectBuild', 'connect', 'watch', function() {
         done();
     });
 });
