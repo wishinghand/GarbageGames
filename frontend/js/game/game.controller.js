@@ -11,12 +11,15 @@
     function GameCtrl(GameFactory, ReviewFactory, UserFactory) {
         var vm = this;
         vm.title = 'GameCtrl';
-
-        activate();
+        vm.getGame = getGame;
+        vm.getReview = getReview;
+        vm.postReview = postReview;
+        vm.deleteReview = deleteReview;
+        vm.getUser = getUser;
 
         ////////////////
 
-        function activate() {
+        function getGame() {
         }
     }
 })();

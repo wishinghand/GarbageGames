@@ -5,18 +5,19 @@
         .module('app')
         .controller('LandingCtrl', LandingCtrl);
 
-    LandingCtrl.$inject = ['GameFactory', 'ReviewFactory', 'UserFactory'];
+    LandingCtrl.$inject = ['GameFactory', 'UserFactory'];
 
     /* @ngInject */
-    function LandingCtrl(GameFactory, ReviewFactory, UserFactory) {
+    function LandingCtrl(GameFactory, UserFactory) {
         var vm = this;
         vm.title = 'LandingCtrl';
-
-        activate();
+        vm.getGame = getGame;
+        vm.getUser = getUser;
+        vm.postUser = postUser;
 
         ////////////////
 
-        function activate() {
+        function getGame() {
         }
     }
 })();

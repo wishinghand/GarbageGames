@@ -5,18 +5,17 @@
         .module('app')
         .controller('SignInCtrl', SignInCtrl);
 
-    SignInCtrl.$inject = ['GameFactory', 'ReviewFactory', 'UserFactory'];
+    SignInCtrl.$inject = ['UserFactory'];
 
     /* @ngInject */
-    function SignInCtrl(GameFactory, ReviewFactory, UserFactory) {
+    function SignInCtrl(UserFactory) {
         var vm = this;
         vm.title = 'SignInCtrl';
-
-        activate();
+        vm.postUser = postUser;
 
         ////////////////
 
-        function activate() {
+        function postUser() {
         }
     }
 })();

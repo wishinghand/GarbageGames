@@ -5,18 +5,22 @@
         .module('app')
         .controller('BrowseCtrl', BrowseCtrl);
 
-    BrowseCtrl.$inject = ['GameFactory', 'ReviewFactory', 'UserFactory'];
+    BrowseCtrl.$inject = ['GameFactory', 'ReviewFactory'];
 
     /* @ngInject */
-    function BrowseCtrl(GameFactory, ReviewFactory, UserFactory) {
+    function BrowseCtrl(GameFactory, ReviewFactory) {
         var vm = this;
         vm.title = 'BrowseCtrl';
-
-        activate();
+        vm.postGames = postGames;
+        vm.getReviews = getReviews;
 
         ////////////////
 
-        function activate() {
+        function postGames() {
+        }
+
+        function getReviews() {
+            
         }
     }
 })();

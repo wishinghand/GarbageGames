@@ -11,12 +11,16 @@
     function ProfileCtrl(GameFactory, ReviewFactory, UserFactory) {
         var vm = this;
         vm.title = 'ProfileCtrl';
-
-        activate();
-
+        vm.getGame = getGame;
+        vm.getReview = getReview;
+        vm.deleteReview = deleteReview;
+        vm.getUser = getUser;
+        vm.putUser = putUser;
+        vm.deleteUser = deleteUser;
+        
         ////////////////
 
-        function activate() {
+        function getGame() {
         }
     }
 })();
