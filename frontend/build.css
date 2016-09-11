@@ -7637,7 +7637,7 @@ main {
 footer {
   margin-top: 50px;
   height: 70px;
-  background-color: #a0a67a;
+  background-color: rgba(160, 166, 122, 0.5);
   box-shadow: 0px -5px 10px #666666; }
 
 .button:active, .button:focus, .button.is-active {
@@ -7681,15 +7681,24 @@ footer {
   width: 90%;
   margin-left: 5%; }
 
+.panel-heading {
+  border-radius: 0px; }
+
+.panel {
+  border-radius: 0px; }
+
+#review-form-content,
 #game-detail-content {
   background-color: rgba(0, 0, 0, 0.5);
   width: 90%;
   padding: 0px 15px 20px 15px;
   margin-top: 100px;
-  margin-left: 5%; }
+  margin-left: 5%;
+  box-shadow: -5px 0px 5px #404230; }
 
 #game-id-card {
-  margin-top: 0px; }
+  margin-top: 0px;
+  padding-right: 0px; }
 
 #game-id-card:hover {
   border: none; }
@@ -7697,6 +7706,9 @@ footer {
 .user-profile {
   background-color: white;
   box-shadow: -5px 5px 5px #404230; }
+
+.user-profile h1 {
+  background-color: #a0a67a; }
 
 .table-title {
   font-size: 1.5em;
@@ -7711,8 +7723,19 @@ footer {
   margin-left: 10%;
   margin-bottom: 15px; }
 
-#signIn-form {
-  background-color: red; }
+.game-details li {
+  color: white;
+  font-size: 1em; }
+
+#game-detail-header {
+  font-size: 2em; }
+
+#review-content {
+  background-color: #a0a67a;
+  width: 90%;
+  padding: 0px 15px 20px 15px;
+  margin-left: 5%;
+  box-shadow: -5px 5px 5px #404230; }
 
 /*!
  * animate.css -http://daneden.me/animate

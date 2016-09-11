@@ -10,7 +10,7 @@
     /* @ngInject */
 
     function BrowseCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
-         724a7accd542a648f562f551153195414c23c47b
+         
         //scope binding
         var vm = this;
 
@@ -21,8 +21,17 @@
         //function bindings
         vm.postGames = postGames;
         vm.getReviews = getReviews;
+        vm.getGame = getGame;
 
         ////////////////
+
+        function getGame(game) {
+            GameFactory.getGame(game).then(
+                function(games) {
+                    vm.games = games;
+                }
+            );
+        }
 
         function postGames() {
             GameFactory.postGame.then(

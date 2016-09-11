@@ -16,7 +16,7 @@ main {
 footer {
 	margin-top: 50px;
 	height: 70px;
-	background-color: rgb(160,166,122);
+	background-color: rgba(160,166,122, .5);
 	box-shadow: 0px -5px 10px rgb(102, 102, 102);
 }
 
@@ -70,18 +70,28 @@ footer {
 	width: 90%;
 	margin-left: 5%;
 }
+.panel-heading{
+	border-radius: 0px
+}
+.panel {
+	border-radius: 0px;
+}
 
+#review-form-content,
 #game-detail-content {
 	background-color: rgba(0, 0, 0, .5);
 	width: 90%;
 	padding: 0px 15px 20px 15px; 
 	margin-top: 100px;
 	margin-left: 5%;
+	box-shadow: -5px 0px 5px rgb(64,66,48);
 }
 
 #game-id-card {
 	margin-top: 0px;
+	padding-right: 0px;
 }
+
 #game-id-card:hover {
 	border: none;
 }
@@ -109,10 +119,21 @@ footer {
 	margin-bottom: 15px;
 }
 
-.review-table{
+.game-details li{
+	color: white;
+	font-size: 1em;
+}
+
+#game-detail-header {
+	font-size: 2em;
 
 }
-#signIn-form {
-	background-color: red;
+
+#review-content {
+	background-color: rgb(160,166,122);
+	width: 90%;
+	padding: 0px 15px 20px 15px; 
+	margin-left: 5%;
+	box-shadow: -5px 5px 5px rgb(64,66,48);
 
 }

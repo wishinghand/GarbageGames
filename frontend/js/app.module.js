@@ -42,6 +42,11 @@
                     url: '/signInUp', 
                     controller: "SignInUpCtrl as signInUp",
                     templateUrl: 'js/signInUp/signInUp.html'
+                })
+                .state('review', {
+                    url: '/review',
+                    controller: "ReviewCtrl as review",
+                    templateUrl: 'js/review/review.html'
                 });
 	   }
 })();

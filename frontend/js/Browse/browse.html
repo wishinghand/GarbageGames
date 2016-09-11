@@ -1,6 +1,6 @@
 <div class="columns">
   <div class="browse">
-    <div class="column is-one-third">
+    <div class="column is-one-third" ng-repeat="game in landing.games">
       
       <a ui-sref="game">
         <div class="card game-cards animated slideInRight">
@@ -10,8 +10,8 @@
             </figure>
           </div>
           <div class="card-content">
-            <h2 class="game-card-title">The Ledgend of Zelda: Breath of the Wild</h2>
-            <p><i class="fa fa-comment-o" aria-hidden="true"></i> 5 reviews</p>
+            <h2 class="game-card-title">{{game.name}}</h2>
+            <p><i class="fa fa-comment-o" aria-hidden="true"></i> {{game.reviews.length}} Reviews</p>
           </div>
         </div>
       </a>
