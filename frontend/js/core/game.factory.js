@@ -5,10 +5,10 @@
         .module('app')
         .factory('GameFactory', GameFactory);
 
-    GameFactory.$inject = ['$http', '$q'];
+    GameFactory.$inject = ['$http', '$q', 'apiUrl'];
 
     /* @ngInject */
-    function GameFactory($http, $q) {
+    function GameFactory($http, $q, apiUrl) {
         //no DELETE because once it's in DB we want to keep it
         var service = {
             getGame: getGame,
@@ -19,10 +19,10 @@
 
         ////////////////
 
-        function getGame() {
+        function getGame(game) {
             var defer = $q.defer();
             
-            $http.get(apiUrl + 'game').then(
+            $http.get(apiUrl + 'game?search=' + game).then(
                 function(response) {
                     defer.resolve(response.data);
                 },

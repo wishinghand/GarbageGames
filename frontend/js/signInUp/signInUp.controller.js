@@ -5,10 +5,10 @@
         .module('app')
         .controller('SignInCtrl', SignInCtrl);
 
-    SignInCtrl.$inject = ['UserFactory'];
+    SignInCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
 
     /* @ngInject */
-    function SignInCtrl(UserFactory) {
+    function SignInCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
         //scope binding
         var vm = this;
 

@@ -5,10 +5,10 @@
         .module('app')
         .factory('ReviewFactory', ReviewFactory);
 
-    ReviewFactory.$inject = ['$http', '$q'];
+    ReviewFactory.$inject = ['$http', '$q', 'apiUrl'];
 
     /* @ngInject */
-    function ReviewFactory($http, $q) {
+    function ReviewFactory($http, $q, apiUrl) {
         //no PUT because we don't want people editing their review
         var service = {
             getReview: getReview,
