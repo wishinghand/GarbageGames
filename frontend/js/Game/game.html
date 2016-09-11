@@ -1,37 +1,39 @@
-<div id="game-detail-content" class="animated fadeInUp">
-  <div class="columns">
-    <div class="column is-one-half">
-      <div class="card game-cards" id="game-id-card">
-  			<div class="card-image">
-      		<figure class="image is-4by3">
-        		<img src="https:/res.cloudinary.com/igdb/image/upload/t_screenshot_med/djytg7kqip9d5dgekfew.jpg" alt="">
-      		</figure>
-  			</div>
-      	<div class="card-content">
-	        <h2 class="game-card-title">{{game.gameName}}</h2>
+<div class="page-content animated fadeInup">
+  <div id="game-detail-content">
+    <div class="columns">
+      <div class="column is-one-quarter">
+  			   <div class="card game-cards" id="game-id-card">
+        			<div class="card-image">
+          		<figure class="image is-4by3">
+            		<img src="https:/res.cloudinary.com/igdb/image/upload/t_screenshot_med/djytg7kqip9d5dgekfew.jpg" alt="">
+          		</figure>
+        			</div>
+  		      	<div class="card-content">
+  		        <h2 class="game-card-title">{{game.name}}</h2>
 
-          <p>{{4234}} reviews</p>
-	        <p>Summary: {{}}</p>
-  			</div>
-        <a class="button is-meium animated infinite pulse" id="add-review-btn" ng-click="game.postReview();" >Add Review</a>
-		  </div>
+              <p><i class="fa fa-comment-o" aria-hidden="true"></i> 4234 reviews</p>
+        			</div>
 
-
-    	</div>
-    	<div class="column">
-    		<table class="review-table">
-        <caption class="table-title">Reviews</caption>
-  				<thead>
-    				<tr>
-      				<th></th>
-    				</tr>
-  				</thead>
-  				<tbody>
-    				<tr>
-     					<td>user review</td>
-    				</tr>
-  				</tbody>
-			</table>
+              <a ui-sref="review">
+               <a class="button is-meium animated infinite pulse" id="add-review-btn" ng-click="game.postReview();" >Add Review</a></a>
+      		</div>
+      	</div>
+      	<div class="column">
+          <div>
+            <h1 id="game-detail-header">Game Name</h1>
+              <ul class="game-details">
+                <li>Summary: </li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div id="review-content">
+    <div id="review-header">
+      <h1>Reviews</h1>
     </div>
   </div>
 </div>

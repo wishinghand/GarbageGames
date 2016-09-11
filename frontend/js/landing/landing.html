@@ -9,20 +9,25 @@
           <input class="input" ng-model="landing.game.name" type="text" placeholder="Example: Grand Theft Auto IV" ng-keyup="$event.keyCode == 13 && landing.getGame(landing.game.name);">
         </p>
         <img src="../img/trash.png">
-        <a class="button is-medium" id="add-review-btn" ng-click="landing.getGame(landing.game.name);">Search</a> 
+        <a class="button is-medium" id="add-review-btn" ng-click="browse.getGame(landing.game.name);" ui-sref="browse">Search</a> 
       </div>
     </div>
   </div>
 </div>
 
-<div class="columns">
+<!-- <div class="columns">
   <div class="column is-one-fifth" ng-repeat="game in landing.games">
       <a ui-sref="game({gameName:game.name})">
         <div class="card game-cards animated slideInRight">
           <div class="card-image">
             <figure class="image is-4by3">
+<<<<<<< HEAD
               <!-- <img src="https://res.cloudinary.com/igdb/image/upload/t_screenshot_med/{{game.id}}.jpg"> -->
             </figure>
+=======
+              <!-- <img src="https://res.cloudinary.com/igdb/image/upload/t_screenshot_med/{{game.hash}}.jpg"></img> -->
+       <!--      </figure>
+>>>>>>> 385ffcde95714d6df118234aa0804ece31ca168a
           </div>
           <div class="card-content">
             <h2 class="game-card-title"> {{game.name}}</h2>
@@ -32,5 +37,12 @@
           </div>
         </div>
       </a>
+<<<<<<< HEAD
   </div>
+=======
+    </div>
+    </div> --> 
+
+
+>>>>>>> 385ffcde95714d6df118234aa0804ece31ca168a
 </div>

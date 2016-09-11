@@ -3,54 +3,43 @@
 
     angular
         .module('app')
-        .controller('GameCtrl', GameCtrl);
+        .controller('ReviewCtrl', ReviewCtrl);
 
-    GameCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
+    ProfileCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
 
     /* @ngInject */
-
-    function GameCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
-
+    function ProfileCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
         //scope binding
         var vm = this;
 
         //data binding
-        vm.title = 'GameCtrl';
+        vm.title = 'ReviewCtrl';
         vm.game = {};
         vm.review = {};
-        vm.gameName = '';
+        vm.user = {};
 
         //function bindings
+        vm.getGame = getGame;
         vm.getReview = getReview;
-        vm.postReview = postReview;
         vm.deleteReview = deleteReview;
         vm.getUser = getUser;
+        vm.putUser = putUser;
+        vm.deleteUser = deleteUser;
 
         ////////////////
 
-        getGame();
-
         function getGame() {
-            vm.gameName = $stateParams.gameName;
-            GameFactory.getGameByName(vm.gameName).then(
+            GameFactory.getGame.then(
                 function(game) {
-                    vm.gameDetails = game;
+                    vm.game = game;
                 }
             );
         }
 
         function getReview() {
-            ReviewFactory.getReview().then(
+            ReviewFactory.getReview.then(
                 function(review) {
                     vm.review = review;
-                }
-            );
-        }
-
-        function postReview() {
-            ReviewFactory.postReview().then(
-                function() {
-                  
                 }
             );
         }
@@ -65,10 +54,27 @@
 
         function getUser() {
             UserFactory.getUser.then(
+                function(user) {
+                    vm.user = user;
+                }
+            );
+        }
+
+        function putUser() {
+            UserFactory.putUser.then(
                 function() {
                   
                 }
             );
         }
+
+        function deleteUser() {
+            UserFactory.deleteUser.then(
+                function() {
+                  
+                }
+            );
+        }
+
     }
 })();

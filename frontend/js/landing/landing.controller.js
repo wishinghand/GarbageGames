@@ -11,6 +11,7 @@
     /* @ngInject */
 
     function LandingCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
+
         //scope binding
         var vm = this;
 
