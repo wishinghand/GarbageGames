@@ -13,7 +13,7 @@
     		$stateProvider
     			.state('404', {
                     url: '/404', 
-                    controller: "404Ctrl as landing",
+                    controller: "404Ctrl as fourohfour",
                     templateUrl: 'landing/landing.html'
                 })
                 .state('browse', {
