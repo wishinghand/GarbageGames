@@ -10,7 +10,7 @@ var gulp = require('gulp'),
 
 var jsSources = ['frontend/app/js/**/*.js'],
     cssSources = ['frontend/app/css/**/*.scss', 'frontend/app/css/**/*.css'],
-    htmlSources = ['frontend/app/**/*.html'];
+    htmlSources = ['frontend/app/**/*.html', 'frontend/*.html'];
 
 gulp.task('clean', function(){
     return gulp.src('./build/*.*', {read: false})
@@ -26,7 +26,7 @@ gulp.task('concatJs', function(){
 
 /**CSS gulp tasks*******************************************************/
 gulp.task('compileSass', function(){
-    return gulp.src([  './src/style/*.scss', './src/style/*.css'])
+    return gulp.src([ 'node_modules/bulma.sass', './frontend/css/*.scss', './frontend/css/*.css'])
     .pipe(sass())
     //and concatenates them
     .pipe(concat('build.css'))
@@ -35,9 +35,9 @@ gulp.task('compileSass', function(){
 
 gulp.task('inject', function(){
     var sources = gulp.src(['./build/*.css', './build/*.js'], {read: false});
-    return gulp.src('./index.html')
+    return gulp.src('./frontend/index.html')
         .pipe(inject(sources, {relative: true}))
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest('./build'));
 });
 
 gulp.task('connect', function(){
