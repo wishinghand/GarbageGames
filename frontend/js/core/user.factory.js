@@ -22,7 +22,7 @@
         function getUser() {
             var defer = $q.defer();
             
-            $http.get(apiUrl + 'endpoint').then(
+            $http.get(apiUrl + 'user').then(
                 function(response) {
                     defer.resolve(response.data);
                 },
@@ -38,7 +38,7 @@
         function postUser (){
             var defer = $q.defer();
             
-            $http.post(apiUrl + 'endpoint',  data).then(
+            $http.post(apiUrl + 'user',  data).then(
                 function(response) {
                     defer.resolve(response.data);
                 },
@@ -54,7 +54,7 @@
         function putUser(){
             var defer = $q.defer();
             
-            $http.put(apiUrl + 'endpoint', data).then(
+            $http.put(apiUrl + 'user', data).then(
                 function(response) {
                     defer.resolve();
                 },
@@ -70,7 +70,7 @@
         function deleteUser(){
             var defer = $q.defer();
             
-            $http.delete(apiUrl + 'endpoint').then(
+            $http.delete(apiUrl + 'user').then(
                 function(response) {
                     defer.resolve(response.data);
                 },

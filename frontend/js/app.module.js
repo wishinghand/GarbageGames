@@ -36,15 +36,10 @@
                     controller: "ProfileCtrl as profile",
                     templateUrl: 'js/profile/profile.html'
                 })
-                .state('signIn', {
-                    url: '/signIn', 
-                    controller: "SignInCtrl as signIn",
-                    templateUrl: 'js/signIn/signIn.html'
-                })
-                .state('signUp/', {
-                    url: '/signUp', 
-                    controller: "SignUpCtrl as signUp",
-                    templateUrl: 'js/signUp/signUp.html'
+                .state('signInUp', {
+                    url: '/signInUp', 
+                    controller: "SignInUpCtrl as signInUp",
+                    templateUrl: 'js/signInUp/signInUp.html'
                 });
     	}
 })();
