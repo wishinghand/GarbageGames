@@ -14,7 +14,7 @@ var port = '3000';
 
 var db_connection = mongoose.connection;
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'frontend')));
 
 app.use(body_parser.urlencoded({extended: false}));
 app.use(morgan('dev'));

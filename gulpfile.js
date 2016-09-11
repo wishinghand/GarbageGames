@@ -12,16 +12,16 @@ var jsSources = ['frontend/js/**/*.js'],
     cssSources = ['frontend/css/**/*.scss', 'frontend/css/**/*.css'],
     htmlSources = ['frontend/**/*.html', 'frontend/*.html'];
 
-gulp.task('clean', function(){
-    return gulp.src('./build/*.*', {read: false})
-    .pipe(clean());
-});
+// gulp.task('clean', function(){
+//     return gulp.src('./build/*.*', {read: false})
+//     .pipe(clean());
+// });
 
 /**JS gulp tasks******************************************************/
 gulp.task('concatJs', function(){
     return gulp.src([ 'node_modules/angular/angular.js', 'node_modules/angular-ui-router/release/angular-ui-router.js', './frontend/js/**/*.module.js', './frontend/js/**/*.js'])
     .pipe(concat('build.js'))
-    .pipe(gulp.dest('./build/'));
+    .pipe(gulp.dest('./frontend/'));
 });
 
 /**CSS gulp tasks*******************************************************/
@@ -31,26 +31,14 @@ gulp.task('compileSass', function(){
     .pipe(sass().on('error', sass.logError))
     //and concatenates them
     .pipe(concat('build.css'))
-    .pipe(gulp.dest('./build/'));
+    .pipe(gulp.dest('./frontend/'));
 });
 
 gulp.task('inject', function(){
-    var sources = gulp.src(['./build/*.css', './build/*.js'], {read: false});
+    var sources = gulp.src(['./frontend/build.css', './frontend/build.js'], {read: false});
     return gulp.src('./frontend/index.html')
         .pipe(inject(sources, {relative: true}))
         .pipe(gulp.dest('./frontend'));
-});
-
-gulp.task('injectBuild', function(){
-    var sources = gulp.src(['./build/*.css', './build/*.js'], {read: false});
-    return gulp.src('./frontend/index.html')
-        .pipe(inject(sources, 
-            {
-                relative: false,
-                ignorePath: '/build'
-            }
-        ))
-        .pipe(gulp.dest('./build'));
 });
 
 gulp.task('connect', function(){
@@ -90,21 +78,15 @@ gulp.task('css', function() {
 });
 
 gulp.task('uncss', function() {
-    return gulp.src('./build/build.css')
+    return gulp.src('./frontend/build.css')
     .pipe(uncss({
         html: ['app/index.html', 'app/**/*.html']
     }))
-    .pipe(gulp.dest('./build'));
+    .pipe(gulp.dest('./frontend'));
 });
 
-gulp.task('dev', function(done) {
-    runSequence('clean', 'concatJs', 'compileSass', 'copyFonts', 'inject', 'connect', 'watch', function() {
-        done();
-    });
-});
-
-gulp.task('build', function(done) {
-    runSequence('clean', 'concatJs', 'compileSass', 'copyFonts', 'injectBuild', 'connect', 'watch', function() {
+gulp.task('serve', function(done) {
+    runSequence('concatJs', 'compileSass', 'copyFonts', 'inject', 'connect', 'watch', function() {
         done();
     });
 });
