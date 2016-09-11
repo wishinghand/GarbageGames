@@ -33,13 +33,32 @@
 	    <a class="nav-item" ui-sref="browse">
 	     	<h2 class="nav-links">Browse</h2>
 	    </a>
-	      <a class="user-status-btn button nav-links" href="#">
-	        <span class="icon">
-	          <i class="fa fa-user" aria-hidden="true"></i>
-	        </span>
-	        <span>Profile</span>
-	      </a>
-	    </span>
+
+	    <!--Account and Register Buttons-->
+	    <a class="nav-item" ui-sref="profile">
+	     	<h2 class="nav-links" ng-model="myVar">Account</h2>
+	    </a>
+	     <!-- <a class="nav-item" ui-sref="profile">
+	     	<h2 class="nav-links">Register</h2>
+	    </a> -->
+
+	    <!--SignIn and SignOut Buttons-->
+	    <div>
+	    	<a class="user-status-btn button nav-link" ui-sref="signInUp" >
+	        	<span class="icon">
+	          	<i class="fa fa-user" aria-hidden="true"></i>
+	        	</span>
+	        	<span>Sign In</span>
+	      	</a>
+	    </div>
+	    <!-- <div ng-hide="signOut">
+	      	<a class="user-status-btn button nav-links" ui-sref="signInUp" ng-click="signOut = true">
+	        	<span class="icon">
+	          	<i class="fa fa-user" aria-hidden="true"></i>
+	        	</span>
+	        	<span>Sign Out</span>
+	      	</a>
+	    </div> -->
 	  </div>
 	</nav>
 

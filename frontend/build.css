@@ -7694,7 +7694,7 @@ footer {
 #game-id-card:hover {
   border: none; }
 
-.review-table {
+.user-profile {
   background-color: white;
   box-shadow: -5px 5px 5px #404230; }
 
@@ -7710,6 +7710,9 @@ footer {
   width: 80%;
   margin-left: 10%;
   margin-bottom: 15px; }
+
+#signIn-form {
+  background-color: red; }
 
 /*!
  * animate.css -http://daneden.me/animate

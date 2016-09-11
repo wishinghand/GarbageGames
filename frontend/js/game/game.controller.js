@@ -8,7 +8,7 @@
     GameCtrl.$inject = ['GameFactory', 'ReviewFactory', 'UserFactory'];
 
     /* @ngInject */
-    function GameCtrl(GameFactory, ReviewFactory, UserFactory) {
+    function GameCtrl($stateParams) {
         //scope binding
         var vm = this;
 

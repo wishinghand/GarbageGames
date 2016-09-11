@@ -7,6 +7,7 @@
 
     appConfig.$inject= ['$urlRouterProvider', '$stateProvider'];
 
+
     	function appConfig($urlRouterProvider, $stateProvider){
     		$urlRouterProvider.otherwise('landing');
 

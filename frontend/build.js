@@ -40065,14 +40065,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
     appConfig.$inject= ['$urlRouterProvider', '$stateProvider'];
 
+         $scope.custom = true;
+            $scope.toggleCustom = function() {
+            $scope.custom = $scope.custom === false ? true: false;
+        };
+
     	function appConfig($urlRouterProvider, $stateProvider){
     		$urlRouterProvider.otherwise('landing');
 
     		$stateProvider
     			.state('404', {
                     url: '/404', 
-                    controller: "404Ctrl as fourohfour",
-                    templateUrl: 'js/landing/landing.html'
+                    // controller: "404Ctrl as fourohfour",
+                    templateUrl: 'js/404/404.html'
                 })
                 .state('browse', {
                     url: '/browse', 
@@ -40453,6 +40458,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
         //data binding
         vm.title = 'LandingCtrl';
+        vm.games = [];
         vm.game = {};
         vm.user = {};
 

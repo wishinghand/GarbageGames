@@ -8,7 +8,7 @@
     LandingCtrl.$inject = ['GameFactory', 'UserFactory'];
 
     /* @ngInject */
-    function LandingCtrl(GameFactory, UserFactory) {
+    function LandingCtrl($stateParams) {
         //scope binding
         var vm = this;
 
