@@ -19,7 +19,7 @@ gulp.task('clean', function(){
 
 /**JS gulp tasks******************************************************/
 gulp.task('concatJs', function(){
-    return gulp.src([ 'node_modules/angular/angular.js', 'node_modules/angular-ui-router/release/angular-ui-router.js', './src/**/*.module.js', './src/**/*.js'])
+    return gulp.src([ 'node_modules/angular/angular.js', 'node_modules/angular-ui-router/release/angular-ui-router.js', './frontend/js/**/*.module.js', './frontend/js/**/*.js'])
     .pipe(concat('build.js'))
     .pipe(gulp.dest('./build/'));
 });
