@@ -14,6 +14,7 @@
 
         //data binding
         vm.title = 'LandingCtrl';
+        vm.games = [];
         vm.game = {};
         vm.user = {};
 
