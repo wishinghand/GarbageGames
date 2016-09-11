@@ -37,7 +37,7 @@ gulp.task('inject', function(){
     var sources = gulp.src(['./build/*.css', './build/*.js'], {read: false});
     return gulp.src('./frontend/index.html')
         .pipe(inject(sources, {relative: true}))
-        .pipe(gulp.dest('./build'));
+        .pipe(gulp.dest('./frontend'));
 });
 
 gulp.task('connect', function(){
