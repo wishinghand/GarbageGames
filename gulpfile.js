@@ -49,6 +49,11 @@ gulp.task('connect', function(){
     });
 });
 
+gulp.task('copyFonts', function() {
+    return gulp.src(['node_modules/font-awesome/fonts/*'])
+            .pipe(gulp.dest('./fonts'));
+});
+
 //checks js/html/css on change...
 gulp.task('watch', function() {
     gulp.watch(jsSources, ['concatJs', 'js']);
@@ -81,7 +86,7 @@ gulp.task('uncss', function() {
 });
 
 gulp.task('serve', function(done) {
-    runSequence('clean', 'concatJs', 'compileSass', 'inject', 'connect', 'watch', function() {
+    runSequence('clean', 'concatJs', 'compileSass', 'copyFonts', 'inject', 'connect', 'watch', function() {
         done();
     });
 });
