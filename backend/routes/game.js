@@ -36,21 +36,27 @@ router.get('/:gameName/exists', function(req, res, next){
                .end(function (result) {
                    if(result.status == 200){
                        var response = result.body[0];
-                       var options = {};
+                       console.log('Response: ' + JSON.stringify(response));
+                       console.log('Search: ' + game_name + ' Response: ' + response.name);
+                       if(game_name.length == response.name.length){
+                           var options = {};
 
-                       if(response.name){
-                           options.name = response.name;
-                       }
-                       if(response.screenshots) {
-                           options.picture = response.screenshots[0].cloudinary_id;
-                       }
-                       game_model.create(options, function(err, game){
-                           if(!err){
-                               res.status(201).send(game);
-                           } else {
-                               res.send(err);
+                           if(response.name){
+                               options.name = response.name;
                            }
-                       });
+                           if(response.screenshots) {
+                               options.picture = response.screenshots[0].cloudinary_id;
+                           }
+                           game_model.create(options, function(err, game){
+                               if(!err){
+                                   res.status(201).send(game);
+                               } else {
+                                   res.send(err);
+                               }
+                           });
+                       } else {
+                           res.sendStatus(400);
+                       }
                    } else {
                        res.send(result);
                    }
