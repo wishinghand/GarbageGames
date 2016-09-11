@@ -54,6 +54,11 @@ gulp.task('copyFonts', function() {
             .pipe(gulp.dest('./fonts'));
 });
 
+gulp.task('copyHTML', function() {
+    return gulp.src(['frontend/index.html'])
+            .pipe(gulp.dest('./build'));
+});
+
 //checks js/html/css on change...
 gulp.task('watch', function() {
     gulp.watch(jsSources, ['concatJs', 'js']);
@@ -86,7 +91,7 @@ gulp.task('uncss', function() {
 });
 
 gulp.task('serve', function(done) {
-    runSequence('clean', 'concatJs', 'compileSass', 'copyFonts', 'inject', 'connect', 'watch', function() {
+    runSequence('clean', 'concatJs', 'compileSass', 'copyFonts', 'inject', 'copyHTML', 'connect', 'watch', function() {
         done();
     });
 });
