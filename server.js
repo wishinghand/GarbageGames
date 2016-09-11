@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
 var body_parser = require('body-parser');
 var path = require('path');
 var setup_api = require('./backend/api');
+var morgan = require('morgan');
 
 var app = express();
 var port = '3000';
@@ -15,8 +16,8 @@ var db_connection = mongoose.connection;
 
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.use(body_parser.json());
-
+app.use(body_parser.urlencoded({extended: false}));
+app.use(morgan('dev'));
 db_connection.on('open', function () {
     console.log('Connection to MongoDB is successful.');
     app.use('/api', require('./backend/routes/index'));
