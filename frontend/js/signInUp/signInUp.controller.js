@@ -9,13 +9,23 @@
 
     /* @ngInject */
     function SignInCtrl(UserFactory) {
+        //scope binding
         var vm = this;
+
+        //data binding
         vm.title = 'SignInCtrl';
+
+        //function bindings
         vm.postUser = postUser;
 
         ////////////////
 
         function postUser() {
+            UserFactory.postUser.then(
+                function() {
+                  
+                }
+            );
         }
     }
 })();
