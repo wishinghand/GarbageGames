@@ -20,11 +20,10 @@ router.post('/review', function(req, res, next){
     var options = {
         text: req.body.text,
         rating: req.body.rating,
-        author: req.body.author,
     };
     review_model.create(options, function(error, review){
         if(!error){
-            res.sendStatus(200);
+            res.sendStatus(201);
         } else {
             res.send(error);
         }

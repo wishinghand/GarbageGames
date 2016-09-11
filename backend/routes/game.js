@@ -46,7 +46,7 @@ router.get('/:gameName/exists', function(req, res, next){
                        }
                        game_model.create(options, function(err, game){
                            if(!err){
-                               res.send(game);
+                               res.status(201).send(game);
                            } else {
                                res.send(err);
                            }
