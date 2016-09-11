@@ -15,9 +15,14 @@ main {
 
 footer {
 	margin-top: 50px;
-	height: 100px;
+	height: 70px;
 	background-color: rgb(160,166,122);
 	box-shadow: 0px -5px 10px rgb(102, 102, 102);
+}
+
+.button:active, .button:focus, .button.is-active {
+  border-color: black;
+  outline: none;
 }
 
 #logo {
@@ -52,6 +57,9 @@ footer {
 	box-shadow: -5px 5px 5px rgb(64,66,48);
 	margin-top: 50px;
 }
+.game-cards:hover{
+	border: 5px solid rgb(64,66,48);
+}
 
 .game-card-title {
 	font-size: 1.5em;
@@ -61,4 +69,39 @@ footer {
 .browse {
 	width: 90%;
 	margin-left: 5%;
+}
+
+#game-detail-content {
+	background-color: rgba(0, 0, 0, .5);
+	width: 90%;
+	padding: 0px 15px 20px 15px; 
+	margin-top: 100px;
+	margin-left: 5%;
+}
+
+#game-id-card {
+	margin-top: 0px;
+}
+#game-id-card:hover {
+	border: none;
+}
+
+.review-table{
+	background-color: white;
+	box-shadow: -5px 5px 5px rgb(64,66,48);
+}
+
+.table-title {
+	font-size: 1.5em;
+	background-color: rgb(160,166,122);
+	color: white;
+}
+
+#add-review-btn {
+	background-color: rgb(160,166,122);
+	box-shadow: -5px 5px 5px rgb(64,66,48);
+	color: white;
+	width: 80%;
+	margin-left: 10%;
+	margin-bottom: 15px;
 }
