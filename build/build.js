@@ -40061,11 +40061,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
     angular
         .module('app', ['ui.router'])
-        .value('apiUrl', 'http://localhost:3000/api/')
         .config(appConfig);
 
     appConfig.$inject= ['$urlRouterProvider', '$stateProvider'];
-
 
     	function appConfig($urlRouterProvider, $stateProvider){
     		$urlRouterProvider.otherwise('landing');
@@ -40073,8 +40071,8 @@ return /******/ (function(modules) { // webpackBootstrap
     		$stateProvider
     			.state('404', {
                     url: '/404', 
-                    // controller: "404Ctrl as fourohfour",
-                    templateUrl: 'js/404/404.html'
+                    controller: "404Ctrl as fourohfour",
+                    templateUrl: 'js/landing/landing.html'
                 })
                 .state('browse', {
                     url: '/browse', 
@@ -40082,7 +40080,7 @@ return /******/ (function(modules) { // webpackBootstrap
                     templateUrl: 'js/browse/browse.html'
                 })
                 .state('game', {
-                    url: '/game/:gameName', 
+                    url: '/game', 
                     controller: "GameCtrl as game",
                     templateUrl: 'js/game/game.html'
                 })
@@ -40100,13 +40098,8 @@ return /******/ (function(modules) { // webpackBootstrap
                     url: '/signInUp', 
                     controller: "SignInUpCtrl as signInUp",
                     templateUrl: 'js/signInUp/signInUp.html'
-                })
-                .state('review', {
-                    url: '/review',
-                    controller: "ReviewCtrl as review",
-                    templateUrl: 'js/review/review.html'
                 });
-	   }
+    	}
 })();
 (function() {
     'use strict';
@@ -40115,48 +40108,22 @@ return /******/ (function(modules) { // webpackBootstrap
         .module('app')
         .controller('BrowseCtrl', BrowseCtrl);
 
-    BrowseCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
+    BrowseCtrl.$inject = ['GameFactory', 'ReviewFactory'];
 
     /* @ngInject */
-
-    function BrowseCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
-
-        //scope binding
+    function BrowseCtrl(GameFactory, ReviewFactory) {
         var vm = this;
-
-        //data binding
         vm.title = 'BrowseCtrl';
-        vm.reviews = {};
-
-        //function bindings
         vm.postGames = postGames;
         vm.getReviews = getReviews;
-        vm.getGame = getGame;
 
         ////////////////
 
-        function getGame(game) {
-            GameFactory.getGame(game).then(
-                function(games) {
-                    vm.games = games;
-                }
-            );
-        }
-
         function postGames() {
-            GameFactory.postGame.then(
-                function() {
-                 //
-                }
-            );
         }
 
         function getReviews() {
-            ReviewFactory.getReviews.then(
-                function(reviews) {
-                    vm.reviews = reviews;
-                }
-            );
+            
         }
     }
 })();
@@ -40167,14 +40134,13 @@ return /******/ (function(modules) { // webpackBootstrap
         .module('app')
         .factory('GameFactory', GameFactory);
 
-    GameFactory.$inject = ['$http', '$q', 'apiUrl'];
+    GameFactory.$inject = ['$http', '$q'];
 
     /* @ngInject */
-    function GameFactory($http, $q, apiUrl) {
+    function GameFactory($http, $q) {
         //no DELETE because once it's in DB we want to keep it
         var service = {
             getGame: getGame,
-            getGameByName: getGameByName,
             postGame: postGame,
             putGame: putGame
         };
@@ -40182,26 +40148,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
         ////////////////
 
-        function getGame(game) {
+        function getGame() {
             var defer = $q.defer();
             
-            $http.get(apiUrl + 'game?search=' + game).then(
-                function(response) {
-                    defer.resolve(response.data);
-                },
-                function(error) {
-                    console.log(error);
-                    defer.reject(error);
-                }
-            );
-            
-            return defer.promise;
-        }
-
-        function getGameByName(gameName){
-            var defer = $q.defer();
-            
-            $http.get(apiUrl + gameName + '/exists').then(
+            $http.get(apiUrl + 'game').then(
                 function(response) {
                     defer.resolve(response.data);
                 },
@@ -40254,10 +40204,10 @@ return /******/ (function(modules) { // webpackBootstrap
         .module('app')
         .factory('ReviewFactory', ReviewFactory);
 
-    ReviewFactory.$inject = ['$http', '$q', 'apiUrl'];
+    ReviewFactory.$inject = ['$http', '$q'];
 
     /* @ngInject */
-    function ReviewFactory($http, $q, apiUrl) {
+    function ReviewFactory($http, $q) {
         //no PUT because we don't want people editing their review
         var service = {
             getReview: getReview,
@@ -40324,10 +40274,10 @@ return /******/ (function(modules) { // webpackBootstrap
         .module('app')
         .factory('UserFactory', UserFactory);
 
-    UserFactory.$inject = ['$http', '$q', 'apiUrl'];
+    UserFactory.$inject = ['$http', '$q'];
 
     /* @ngInject */
-    function UserFactory($http, $q, apiUrl) {
+    function UserFactory($http, $q) {
         var service = {
             getUser: getUser,
             postUser: postUser,
@@ -40410,22 +40360,13 @@ return /******/ (function(modules) { // webpackBootstrap
         .module('app')
         .controller('GameCtrl', GameCtrl);
 
-    GameCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
+    GameCtrl.$inject = ['GameFactory', 'ReviewFactory', 'UserFactory'];
 
     /* @ngInject */
-
-    function GameCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
-
-        //scope binding
+    function GameCtrl(GameFactory, ReviewFactory, UserFactory) {
         var vm = this;
-
-        //data binding
         vm.title = 'GameCtrl';
-        vm.game = {};
-        vm.review = {};
-        vm.gameName = '';
-
-        //function bindings
+        vm.getGame = getGame;
         vm.getReview = getReview;
         vm.postReview = postReview;
         vm.deleteReview = deleteReview;
@@ -40433,47 +40374,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
         ////////////////
 
-        getGame();
-
         function getGame() {
-            vm.gameName = $stateParams.gameName;
-            GameFactory.getGameByName(vm.gameName).then(
-                function(game) {
-                    vm.gameDetails = game;
-                }
-            );
-        }
-
-        function getReview() {
-            ReviewFactory.getReview().then(
-                function(review) {
-                    vm.review = review;
-                }
-            );
-        }
-
-        function postReview() {
-            ReviewFactory.postReview().then(
-                function() {
-                  
-                }
-            );
-        }
-
-        function deleteReview() {
-            ReviewFactory.deleteReview.then(
-                function() {
-                  
-                }
-            );
-        }
-
-        function getUser() {
-            UserFactory.getUser.then(
-                function() {
-                  
-                }
-            );
         }
     }
 })();
@@ -40484,51 +40385,19 @@ return /******/ (function(modules) { // webpackBootstrap
         .module('app')
         .controller('LandingCtrl', LandingCtrl);
 
-    LandingCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
-
+    LandingCtrl.$inject = ['GameFactory', 'UserFactory'];
 
     /* @ngInject */
-
-    function LandingCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
-
-        //scope binding
+    function LandingCtrl(GameFactory, UserFactory) {
         var vm = this;
-
-        //data binding
         vm.title = 'LandingCtrl';
-        vm.games = [];
-        vm.game = {};
-        vm.user = {};
-
-        //function bindings
         vm.getGame = getGame;
         vm.getUser = getUser;
         vm.postUser = postUser;
 
         ////////////////
 
-        function getGame(game) {
-            GameFactory.getGame(game).then(
-                function(games) {
-                    vm.games = games;
-                }
-            );
-        }
-
-        function getUser() {
-            UserFactory.getUser().then(
-                function(user) {
-                    vm.user = user;
-                }
-            );
-        }
-
-        function postUser() {
-            UserFactory.postUser().then(
-                function() {
-                  
-                }
-            );
+        function getGame() {
         }
     }
 })();
@@ -40539,157 +40408,23 @@ return /******/ (function(modules) { // webpackBootstrap
         .module('app')
         .controller('ProfileCtrl', ProfileCtrl);
 
-    ProfileCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
+    ProfileCtrl.$inject = ['GameFactory', 'ReviewFactory', 'UserFactory'];
 
     /* @ngInject */
-    function ProfileCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
-        //scope binding
+    function ProfileCtrl(GameFactory, ReviewFactory, UserFactory) {
         var vm = this;
-
-        //data binding
         vm.title = 'ProfileCtrl';
-        vm.game = {};
-        vm.review = {};
-        vm.user = {};
-
-        //function bindings
         vm.getGame = getGame;
         vm.getReview = getReview;
         vm.deleteReview = deleteReview;
         vm.getUser = getUser;
         vm.putUser = putUser;
         vm.deleteUser = deleteUser;
-
+        
         ////////////////
 
         function getGame() {
-            GameFactory.getGame.then(
-                function(game) {
-                    vm.game = game;
-                }
-            );
         }
-
-        function getReview() {
-            ReviewFactory.getReview.then(
-                function(review) {
-                    vm.review = review;
-                }
-            );
-        }
-
-        function deleteReview() {
-            ReviewFactory.deleteReview.then(
-                function() {
-                  
-                }
-            );
-        }
-
-        function getUser() {
-            UserFactory.getUser.then(
-                function(user) {
-                    vm.user = user;
-                }
-            );
-        }
-
-        function putUser() {
-            UserFactory.putUser.then(
-                function() {
-                  
-                }
-            );
-        }
-
-        function deleteUser() {
-            UserFactory.deleteUser.then(
-                function() {
-                  
-                }
-            );
-        }
-
-    }
-})();
-(function() {
-    'use strict';
-
-    angular
-        .module('app')
-        .controller('ReviewCtrl', ReviewCtrl);
-
-    ProfileCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
-
-    /* @ngInject */
-    function ProfileCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
-        //scope binding
-        var vm = this;
-
-        //data binding
-        vm.title = 'ReviewCtrl';
-        vm.game = {};
-        vm.review = {};
-        vm.user = {};
-
-        //function bindings
-        vm.getGame = getGame;
-        vm.getReview = getReview;
-        vm.deleteReview = deleteReview;
-        vm.getUser = getUser;
-        vm.putUser = putUser;
-        vm.deleteUser = deleteUser;
-
-        ////////////////
-
-        function getGame() {
-            GameFactory.getGame.then(
-                function(game) {
-                    vm.game = game;
-                }
-            );
-        }
-
-        function getReview() {
-            ReviewFactory.getReview.then(
-                function(review) {
-                    vm.review = review;
-                }
-            );
-        }
-
-        function deleteReview() {
-            ReviewFactory.deleteReview.then(
-                function() {
-                  
-                }
-            );
-        }
-
-        function getUser() {
-            UserFactory.getUser.then(
-                function(user) {
-                    vm.user = user;
-                }
-            );
-        }
-
-        function putUser() {
-            UserFactory.putUser.then(
-                function() {
-                  
-                }
-            );
-        }
-
-        function deleteUser() {
-            UserFactory.deleteUser.then(
-                function() {
-                  
-                }
-            );
-        }
-
     }
 })();
 (function() {
@@ -40699,27 +40434,17 @@ return /******/ (function(modules) { // webpackBootstrap
         .module('app')
         .controller('SignInCtrl', SignInCtrl);
 
-    SignInCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
+    SignInCtrl.$inject = ['UserFactory'];
 
     /* @ngInject */
-    function SignInCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
-        //scope binding
+    function SignInCtrl(UserFactory) {
         var vm = this;
-
-        //data binding
         vm.title = 'SignInCtrl';
-
-        //function bindings
         vm.postUser = postUser;
 
         ////////////////
 
         function postUser() {
-            UserFactory.postUser.then(
-                function() {
-                  
-                }
-            );
         }
     }
 })();
