@@ -40104,7 +40104,7 @@ return /******/ (function(modules) { // webpackBootstrap
                 .state('review', {
                     url: '/review',
                     controller: "ReviewCtrl as review",
-                    templateUrl: 'js/review/review.html'
+                    templateUrl: 'js/Review/review.html'
                 });
 	   }
 })();
@@ -40537,17 +40537,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
     angular
         .module('app')
-        .controller('ProfileCtrl', ProfileCtrl);
+        .controller('ReviewCtrl', ReviewCtrl);
 
-    ProfileCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
+    ReviewCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
 
     /* @ngInject */
-    function ProfileCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
+    function ReviewCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
         //scope binding
         var vm = this;
 
         //data binding
-        vm.title = 'ProfileCtrl';
+        vm.title = 'ReviewCtrl';
         vm.game = {};
         vm.review = {};
         vm.user = {};
@@ -40555,10 +40555,8 @@ return /******/ (function(modules) { // webpackBootstrap
         //function bindings
         vm.getGame = getGame;
         vm.getReview = getReview;
-        vm.deleteReview = deleteReview;
+        vm.postReview = postReview;
         vm.getUser = getUser;
-        vm.putUser = putUser;
-        vm.deleteUser = deleteUser;
 
         ////////////////
 
@@ -40578,7 +40576,7 @@ return /******/ (function(modules) { // webpackBootstrap
             );
         }
 
-        function deleteReview() {
+        function postReview() {
             ReviewFactory.deleteReview.then(
                 function() {
                   
@@ -40601,15 +40599,6 @@ return /******/ (function(modules) { // webpackBootstrap
                 }
             );
         }
-
-        function deleteUser() {
-            UserFactory.deleteUser.then(
-                function() {
-                  
-                }
-            );
-        }
-
     }
 })();
 (function() {
@@ -40617,7 +40606,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
     angular
         .module('app')
-        .controller('ReviewCtrl', ReviewCtrl);
+        .controller('ProfileCtrl', ProfileCtrl);
 
     ProfileCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
 
@@ -40627,7 +40616,7 @@ return /******/ (function(modules) { // webpackBootstrap
         var vm = this;
 
         //data binding
-        vm.title = 'ReviewCtrl';
+        vm.title = 'ProfileCtrl';
         vm.game = {};
         vm.review = {};
         vm.user = {};

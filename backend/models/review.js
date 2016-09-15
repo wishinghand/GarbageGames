@@ -9,6 +9,5 @@ module.exports = {
     schema: new schema({
         rating: { type: Number },
         text: { type: String },
-        author: { type: schema.Types.ObjectId },
     }),
 };

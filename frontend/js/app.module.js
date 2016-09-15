@@ -46,7 +46,7 @@
                 .state('review', {
                     url: '/review',
                     controller: "ReviewCtrl as review",
-                    templateUrl: 'js/review/review.html'
+                    templateUrl: 'js/Review/review.html'
                 });
 	   }
 })();

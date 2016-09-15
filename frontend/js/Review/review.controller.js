@@ -5,10 +5,10 @@
         .module('app')
         .controller('ReviewCtrl', ReviewCtrl);
 
-    ProfileCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
+    ReviewCtrl.$inject = ['$stateParams', '$state', 'GameFactory', 'UserFactory', 'ReviewFactory'];
 
     /* @ngInject */
-    function ProfileCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
+    function ReviewCtrl($stateParams, $state, GameFactory, UserFactory, ReviewFactory) {
         //scope binding
         var vm = this;
 
@@ -21,10 +21,8 @@
         //function bindings
         vm.getGame = getGame;
         vm.getReview = getReview;
-        vm.deleteReview = deleteReview;
+        vm.postReview = postReview;
         vm.getUser = getUser;
-        vm.putUser = putUser;
-        vm.deleteUser = deleteUser;
 
         ////////////////
 
@@ -44,7 +42,7 @@
             );
         }
 
-        function deleteReview() {
+        function postReview() {
             ReviewFactory.deleteReview.then(
                 function() {
                   
@@ -67,14 +65,5 @@
                 }
             );
         }
-
-        function deleteUser() {
-            UserFactory.deleteUser.then(
-                function() {
-                  
-                }
-            );
-        }
-
     }
 })();

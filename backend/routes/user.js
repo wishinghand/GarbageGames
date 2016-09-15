@@ -3,8 +3,20 @@
  */
 
 var router = require('express').Router();
+
 var user_schema = require('./../models/user');
 var user_model = require('mongoose').model(user_schema.name, user_schema.schema);
+
+var Joi = require('joi');
+var validate = require('express-validation');
+var login_validation = {
+    body: {
+        name: Joi.string().required(),
+        email: Joi.string().email().required(),
+        password: Joi.string().regex(/[a-zA-Z0-9]{3,30}/).required(),
+    }
+};
+
 
 router.get('/user/:userId', function(req, res, next){
     // find by ID and return just the JSON data by supplying lean()
@@ -39,8 +51,7 @@ router.put('/user/:userId', function(req, res, next){
     }
 });
 
-router.post('/user', function(req, res, next){
-    console.log(req.body);
+router.post('/user', validate(login_validation), function(req, res, next){
 
     var user_info = {
         name: req.body.name,
