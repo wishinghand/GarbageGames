@@ -18,6 +18,7 @@ footer {
 	height: 70px;
 	background-color: rgba(160,166,122, .5);
 	box-shadow: 0px -5px 10px rgb(102, 102, 102);
+	color: white;
 }
 
 .button:active, .button:focus, .button.is-active {
@@ -136,4 +137,8 @@ footer {
 	margin-left: 5%;
 	box-shadow: -5px 5px 5px rgb(64,66,48);
 
+}
+
+.creators  {
+	color: white !important; 
 }
